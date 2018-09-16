@@ -1,4 +1,3 @@
-import ModelBasicExample from './modelBasicExample';
 import Matrix from './Matrix';
 import Computation from './Computation';
 import Random from './Random';

@@ -1,5 +1,3 @@
-import ModelBasicExample from './modelBasicExample';
-
 import React, { Component } from 'react'
 import { Segment, Grid, Header, Button } from 'semantic-ui-react'
 import { Element } from 'react-scroll';
