@@ -60,7 +60,7 @@ export default class Computation extends Component {
                             {this.state.five}</div>
                     </Grid.Row>}
                     {this.state.showResult && <Grid.Row textAlign='center'>
-                        <div>{this.state.oneRes} + {this.state.twoRes} + {this.state.threeRes} + {this.state.fourRes}</div>
+                        <div>{this.state.oneRes} | {this.state.twoRes} | {this.state.threeRes} | {this.state.fourRes}</div>
                     </Grid.Row>}
                     {!this.state.showResult && <Grid.Row textAlign='center'>
                         <br />
@@ -127,10 +127,11 @@ export default class Computation extends Component {
     }
 
     generateResult() {
+        debugger;
         var _oneRes = this.state.operations[this.state.oneOp].func(this.state.one, this.state.two);
         var _twoRes = this.state.operations[this.state.twoOp].func(_oneRes, this.state.three);
-        var _threeRes = this.state.operations[this.state.oneOp].func(_twoRes, this.state.four);
-        var _fourRes = this.state.operations[this.state.oneOp].func(_threeRes, this.state.five);
+        var _threeRes = this.state.operations[this.state.threeOp].func(_twoRes, this.state.four);
+        var _fourRes = this.state.operations[this.state.fourOp].func(_threeRes, this.state.five);
         this.setState({
             oneRes: _oneRes,
             twoRes: _twoRes,
