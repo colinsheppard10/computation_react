@@ -1,0 +1,40 @@
+version: '3'
+services:
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: computation
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - '3050:80'
+    depends_on:
+      - col_client_nginx
+      - col_api
+  col_client_nginx:
+    build:
+      context: ./col_client_nginx
+      dockerfile: Dockerfile
+  col_api:
+    restart: always
+    build:
+      context: ./col_api
+      dockerfile: Dockerfile
+    depends_on: 
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=example
+      - MYSQL_NAME=computation

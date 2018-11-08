@@ -1,0 +1,9 @@
+
+  - docker build -t colinsheppard10/col-client ./col_client_nginx
+  - docker build -t colinsheppard10/col-nginx ./nginx
+  - docker build -t colinsheppard10/col-api ./col_api
+  # log into docker CLI
+  # toke the images and push them to docker hub
+  - docker push colinsheppard10/col-client
+  - docker push colinsheppard10/col-nginx
+  - docker push colinsheppard10/col-api
