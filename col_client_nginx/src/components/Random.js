@@ -42,7 +42,7 @@ class Random extends Component {
                         this.generateValues();
                         this.setState({
                             loops: this.state.loops + 1
-                        });
+                        }); 
                         if (this.state.loops >= 4) {
                             this.stopTimer();
                         }
@@ -80,7 +80,6 @@ class Random extends Component {
         this.setState({
             endTime: `${min.toString()}:${sec.toString().length < 2 ? `0${sec.toString()}` : sec.toString()}`
         })
-        debugger;
         this.props.submitResults(this.props.results.computationResults, this.state.numberCorrect);
 
     }

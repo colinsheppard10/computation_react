@@ -20,7 +20,6 @@ export function fetchData() {
 export function submitResults(computationResults, randomResults) {
     const data = async () => {
         try {
-            debugger
             if (computationResults != null && randomResults != null) {
                 return await axios.post('/api/insert', { "computationResults": computationResults, "randomResults": randomResults })
             } else {

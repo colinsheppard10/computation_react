@@ -1,4 +1,4 @@
-import Matrix from './Matrix';
+import Spatial from './Spatial';
 import Computation from './Computation';
 import Random from './Random';
 
@@ -9,14 +9,14 @@ import { Segment, Grid, Header, Image, Reveal } from 'semantic-ui-react'
 export default class Games extends Component {
     render() {
         return (
-            <Segment style={{ padding: '0em' }} vertical>
+            <Segment vertical>
                 <Grid celled='internally' columns='equal' stackable>
                     <Grid.Row textAlign='center'>
                         <Grid.Column>
                             <Computation />
                         </Grid.Column>
                         <Grid.Column>
-                            <Random />
+                            <Spatial />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
