@@ -41,6 +41,18 @@ app.post('/api/insert', async (req, res) => {
   }
 });
 
+app.post('/api/studysession', async (req, res) => {
+  logger.info(`recieved API post request ${new Date()}`);
+  try {
+    var data = await databaseConnect.insertOrUpdateStudySession(dbConnection, req.body.studySessionResults);
+    logger.info(`inserted into DB ${new Date()}`);
+    res.send(`${JSON.stringify(data)}`);
+  } catch (err) {
+    console.log(err);
+    logger.info(err);
+  }
+});
+
 app.listen(5000, async (err) => {
   dbConnection = await databaseConnect.getDBConnection();
   console.log('API endpoint listening on port 5000');

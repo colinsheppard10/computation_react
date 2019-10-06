@@ -1,6 +1,6 @@
 import Spatial from './Spatial';
 import Computation from './Computation';
-import Random from './Random';
+import Timer from './Timer';
 
 import React, { Component } from 'react'
 import { Segment, Grid, Header, Image, Reveal } from 'semantic-ui-react'
@@ -12,6 +12,9 @@ export default class Games extends Component {
             <Segment vertical>
                 <Grid celled='internally' columns='equal' stackable>
                     <Grid.Row textAlign='center'>
+                        <Grid.Column>
+                            <Timer />
+                        </Grid.Column>
                         <Grid.Column>
                             <Computation />
                         </Grid.Column>

@@ -32,7 +32,7 @@ class Report extends React.Component {
                         // var dateArray = event. -- need to split string value
                         var time = event.time.split("T")[0].split("-");
                         return {
-                            title: `${event.computation_correct}, ${event.random_correct}`,
+                            title: `${event.study_session_results}, ${event.random_correct}`,
                             start: new Date(time[0], parseInt(time[1], 10) - 1, time[2]),
                             end: new Date(time[0], parseInt(time[1], 10) - 1, time[2])
                         }
