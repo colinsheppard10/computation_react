@@ -8,6 +8,7 @@
     "mysql": "^2.15.0",
     "react": "^16.4.2",
     "react-big-calendar": "^0.20.1",
+    "react-countdown": "^2.2.0",
     "react-dom": "^16.4.2",
     "react-event-calendar": "^0.3.0",
     "react-redux": "5.0.7",
