@@ -81,6 +81,10 @@ var databaseConnect = {
 }
 module.exports = databaseConnect;
 
+// sever: mysql
+// username: root
+// pw: example
+
 // CREATE TABLE morning_routine(
 //     time DATE PRIMARY KEY,
 //     computation_correct INT(6),
