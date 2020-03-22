@@ -6,7 +6,7 @@ import { submitStudySession } from '../actions';
 import { connect } from 'react-redux';
 
 // Random component
-const Completionist = () => <span>You are good to go!</span>;
+// const Completionist = () => <span>You are good to go!</span>;
 
 class Timer extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class Timer extends Component {
                     <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg" >
                     </source>
                 </audio>
-                {!this.state.startButtonVisible && <Countdown date={Date.now() + 1200000} renderer={this.renderer}/>}
+                {!this.state.startButtonVisible && <Countdown date={Date.now() + 1800000} renderer={this.renderer}/>}
                 {this.state.startButtonVisible && <Button onClick={() => {this.setState({startButtonVisible: !this.state.startButtonVisible})}} size='large'>Start Session</Button>}
                 {this.state.startButtonVisible && <Button onClick={this.playAudio} size='large'>Test Sound</Button>}
             </Grid.Row>
