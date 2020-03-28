@@ -27,7 +27,6 @@ class Timer extends Component {
         this.setState({timerVisible: !this.state.timerVisible})
         this.props.submitStudySession(1);
         this.playAudio();
-        this.props.fetchData();
         return <div></div>;
       } else {
         // Render a countdown

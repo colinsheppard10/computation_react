@@ -1,0 +1,9 @@
+{"message":"logger initalized","level":"info"}
+{"message":"recieved Data get request Sat Mar 28 2020 12:42:46 GMT-0400 (EDT)","level":"info"}
+{"message":"retrieved data from DB Sat Mar 28 2020 12:42:46 GMT-0400 (EDT)","level":"info"}
+{"message":"recieved Data get request Sat Mar 28 2020 12:45:21 GMT-0400 (EDT)","level":"info"}
+{"message":"retrieved data from DB Sat Mar 28 2020 12:45:21 GMT-0400 (EDT)","level":"info"}
+{"message":"recieved API post request Sat Mar 28 2020 12:48:24 GMT-0400 (EDT)","level":"info"}
+{"message":"inserted into DB Sat Mar 28 2020 12:48:24 GMT-0400 (EDT)","level":"info"}
+{"message":"recieved API post request Sat Mar 28 2020 12:48:43 GMT-0400 (EDT)","level":"info"}
+{"message":"inserted into DB Sat Mar 28 2020 12:48:43 GMT-0400 (EDT)","level":"info"}
