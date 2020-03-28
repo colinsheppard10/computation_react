@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid, Button,Transition } from "semantic-ui-react";
+import { fetchData } from "../actions";
 import Countdown from "react-countdown";
 
 import { submitStudySession } from "../actions";
@@ -12,7 +13,7 @@ class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startButtonVisible: true,
+      timerVisible: false,
       minute: 0,
       second: 0
     };
@@ -23,8 +24,10 @@ class Timer extends Component {
     this.renderer = ({ hours, minutes, seconds, completed }) => {
       // if (completed || completed == null) {
       if (completed) {
+        this.setState({timerVisible: !this.state.timerVisible})
         this.props.submitStudySession(1);
         this.playAudio();
+        this.props.fetchData();
         return <div></div>;
       } else {
         // Render a countdown
@@ -36,41 +39,23 @@ class Timer extends Component {
       }
     };
   }
-
   render() {
     return (
-      <Grid.Row>
-        <audio
-          ref={yellow => {
-            this.yellow = yellow;
-          }}
-        >
-          <source
-            src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
-            type="audio/mpeg"
-          ></source>
-        </audio>
-        {!this.state.startButtonVisible && (
-          <Countdown date={Date.now() + 3000} renderer={this.renderer} />
-        )}
-        {this.state.startButtonVisible && (
-          <Button
-            onClick={() => {
-              this.setState({
-                startButtonVisible: !this.state.startButtonVisible
-              });
-            }}
-            size="large"
-          >
-            Start Session
-          </Button>
-        )}
-        {this.state.startButtonVisible && (
-          <Button onClick={this.playAudio} size="large">
+      <Grid centered columns={1}>
+        <Grid.Row>
+          <audio ref={yellow => {this.yellow = yellow;}}>
+            <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></source>
+          </audio>
+          {this.state.timerVisible && <Countdown date={Date.now() + 3000} renderer={this.renderer} />}
+          {!this.state.timerVisible && <Button onClick={() => {this.setState({timerVisible: true});}} size="large">
+             <div>Start Session</div>
+          </Button>}
+          {!this.state.timerVisible && <Button onClick={this.playAudio} size="large">
             Test Sound
-          </Button>
-        )}
-      </Grid.Row>
+          </Button>}
+        </Grid.Row>
+      </Grid>
+
     );
   }
 }
@@ -82,4 +67,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { submitStudySession })(Timer);
+export default connect(mapStateToProps, { submitStudySession, fetchData })(Timer);
