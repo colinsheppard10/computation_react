@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   mysql:
     image: mysql
@@ -11,14 +11,14 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8081:8080
   nginx:
     restart: always
     build:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - '3050:80'
+      - "3051:80"
     depends_on:
       - col_client_nginx
       - col_api
@@ -31,7 +31,7 @@ services:
     build:
       context: ./col_api
       dockerfile: Dockerfile
-    depends_on: 
+    depends_on:
       - mysql
     environment:
       - MYSQL_HOST=mysql
