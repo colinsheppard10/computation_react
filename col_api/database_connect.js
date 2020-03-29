@@ -77,7 +77,30 @@ var databaseConnect = {
                     ON DUPLICATE KEY UPDATE study_session_results=study_session_results+1;`
         await databaseConnect.executeQuery(con, sql);
         return;
-    }    
+    },
+    
+    
+    insertOrUpdateStudySessionJess: async function (con, studySessionResults) {
+        const currentDate = new Date();
+        // going to let the db auto increment
+        var sql = `INSERT INTO morning_routine_jess
+                    (time)
+                        VALUES
+                    ('${this.formDate()}')
+                    ON DUPLICATE KEY UPDATE study_session_results=study_session_results+1;`
+        await databaseConnect.executeQuery(con, sql);
+        return;
+    }, 
+
+    getDataJess: async function (con) {
+        var sql = `SELECT * FROM morning_routine_jess`
+        var results = await databaseConnect.executeQuery(con, sql);
+        if (results.length == 0) {
+            throw new Error("No morning routine dataes selected");
+        }
+        return results;
+    }
+
 }
 module.exports = databaseConnect;
 
@@ -92,7 +115,7 @@ module.exports = databaseConnect;
 //     study_session_results INT(6) DEFAULT 1 
 // );
 
-// INSERT INTO morning_routine
+// INSERT INTO morning_routine_jess
 //     (time, computation_correct, random_correct)
 // VALUES
 //     ('2019-10-05',2, 1)

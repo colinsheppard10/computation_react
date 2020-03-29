@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchData } from "../actions";
+// import { fetchData } from "../actions";
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
 import { Container } from "semantic-ui-react";
@@ -12,7 +12,6 @@ class Report extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.props.fetchData();
   }
 
   render() {
@@ -24,9 +23,8 @@ class Report extends React.Component {
       <BigCalendar
         style={{ padding: "2em", height: "30em" }}
         events={
-          this.props.data.data
-            ? this.props.data.data.map(event => {
-                // var dateArray = event. -- need to split string value
+            this.props.data.length
+            ? this.props.data.map(event => {
                 var time = event.time.split("T")[0].split("-");
                 return {
                   title: `${event.study_session_results}`,
@@ -42,8 +40,4 @@ class Report extends React.Component {
     );
   };
 }
-
-function mapStateToProps(state) {
-  return { data: state.data };
-}
-export default connect(mapStateToProps, { fetchData })(Report);
+export default Report;

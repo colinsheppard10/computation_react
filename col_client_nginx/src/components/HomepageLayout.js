@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Responsive, Segment } from "semantic-ui-react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Responsive } from "semantic-ui-react";
 
 import GamesSeg from "./seg_games";
 import Report from "./Report";
+import HomeCol from "./HomeCol";
+import HomeJess from "./HomeJess";
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
@@ -48,13 +51,17 @@ class HomepageLayout extends Component {
   render() {
     return (
       <ResponsiveContainer>
-        <Report />
-        <Segment vertical>
-          <GamesSeg />
-        </Segment>
+        <BrowserRouter>
+            <Switch>
+              <Route path='/col' render={(props) => <HomeCol {...props} name='colin' />}/>
+              <Route path='/jess' render={(props) => <HomeJess {...props} name='jess' />}/>
+            </Switch>
+        </BrowserRouter>
       </ResponsiveContainer>
     );
   }
 }
+
+
 
 export default HomepageLayout;
