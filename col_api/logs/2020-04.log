@@ -1,0 +1,12 @@
+{"message":"logger initalized","level":"info"}
+{"message":"logger initalized","level":"info"}
+{"message":"recieved Data get request Sun Apr 05 2020 13:05:04 GMT-0400 (EDT)","level":"info"}
+{"message":"retrieved data from DB Sun Apr 05 2020 13:05:04 GMT-0400 (EDT)","level":"info"}
+{"message":"logger initalized","level":"info"}
+{"message":"recieved Data get request Sun Apr 05 2020 13:07:24 GMT-0400 (EDT)","level":"info"}
+{"level":"info"}
+{"message":"logger initalized","level":"info"}
+{"message":"recieved Data get request Sun Apr 05 2020 13:08:40 GMT-0400 (EDT)","level":"info"}
+{"level":"info"}
+{"message":"logger initalized","level":"info"}
+{"message":"recieved Data get request Sun Apr 05 2020 13:10:15 GMT-0400 (EDT)","level":"info"}

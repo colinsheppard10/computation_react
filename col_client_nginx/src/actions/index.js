@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_DATA = 'FETCH_DATA';
 export const FETCH_DATA_JESS = 'FETCH_DATA_JESS';
+export const FETCH_RANDOM = 'FETCH_RANDOM';
 
 export const SUBMIT_STUDY_SESSION = 'SUBMIT_STUDY_SESSION';
 export const SUBMIT_STUDY_SESSION_JESS = 'SUBMIT_STUDY_SESSION_JESS';
@@ -18,6 +19,20 @@ export function fetchData() {
     }
     return {
         type: FETCH_DATA,
+        payload: data()
+    };
+}
+
+export function fetchRandom() {
+    const data = async () => {
+        try {
+            return await axios.get('api/random');
+        } catch (err) {
+            console.log('ERROR From Actions Get Data');
+        }
+    }
+    return {
+        type: FETCH_RANDOM,
         payload: data()
     };
 }

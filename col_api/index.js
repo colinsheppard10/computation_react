@@ -5,6 +5,7 @@ var logger = require('./logs/logger');
 // Express App Setup
 const express = require('express');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 const cors = require('cors');
 const app = express();
 app.use(cors());
@@ -74,6 +75,18 @@ app.get('/api/datajess', async (req, res) => {
     var data = await databaseConnect.getDataJess(dbConnection);
     logger.info(`retrieved data from DB ${new Date()}`);
     res.send(data);
+  } catch (err) {
+    console.log(err);
+    logger.info(err);
+  }
+});
+
+app.get('/api/random', async (req, res) => {
+  logger.info(`recieved Data get request ${new Date()}`);
+  try {
+    var response =  await axios.get('https://random-word-api.herokuapp.com//word?number=2');
+    console.log(response.data);
+    res.send(response.data);
   } catch (err) {
     console.log(err);
     logger.info(err);

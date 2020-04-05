@@ -9,6 +9,7 @@ import Report from "./Report";
 import Timer from "./Timer";
 import Computation from "./games/Computation";
 import Spatial from "./games/Spatial";
+import RandomWords from "./games/RandomWords";
 
 class HomeCol extends React.Component {
   constructor(props) {
@@ -30,7 +31,18 @@ class HomeCol extends React.Component {
                   <Computation />
               </Grid.Column>
               <Grid.Column>
-                  <Spatial />
+                  <RandomWords />
+              </Grid.Column>
+          </Grid.Row>
+          <Grid.Row textAlign='center'>
+            <Grid.Column>
+                  <div/>
+              </Grid.Column>
+              <Grid.Column>
+                <Spatial />
+              </Grid.Column>
+              <Grid.Column>
+                  <div/>
               </Grid.Column>
           </Grid.Row>
       </Grid>
