@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { Grid, Button } from "semantic-ui-react";
 import Countdown from "react-countdown";
 
-import { submitStudySession } from "../actions";
-import { connect } from "react-redux";
-
 class Timer extends Component {
   constructor(props) {
     super(props);

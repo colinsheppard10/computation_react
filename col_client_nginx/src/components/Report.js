@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-// import { fetchData } from "../actions";
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
 import { Container } from "semantic-ui-react";

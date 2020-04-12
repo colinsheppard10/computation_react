@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment, Table, Button, Grid, Image} from 'semantic-ui-react'
+import { Button, Grid, Image} from 'semantic-ui-react'
 import whiteSquare from './whiteSquare.png';
 import blackSquare from './blackSquare.png';
 import { submitResults } from '../../actions';
@@ -77,13 +77,13 @@ class Spatial extends Component {
                                 if (blank){
                                     return (
                                         <Grid.Column onClick = {() => {this.updateArray(rIndex,cIndex)}} centered width={2} style={{ padding: '0em' }} >
-                                            <Image src={this.state.clickedArray[rIndex][cIndex] == 1? blackSquare:whiteSquare}fluid/>
+                                            <Image src={this.state.clickedArray[rIndex][cIndex] === 1? blackSquare:whiteSquare}fluid/>
                                         </Grid.Column>
                                     )
                                 } else {
                                     return (
                                         <Grid.Column centered width={2} style={{ padding: '0em' }}>
-                                            <Image src={_myArray[rIndex][cIndex] == 1?blackSquare:whiteSquare}fluid/>
+                                            <Image src={_myArray[rIndex][cIndex] === 1?blackSquare:whiteSquare}fluid/>
                                         </Grid.Column>
                                     )
                                 }
@@ -99,7 +99,7 @@ class Spatial extends Component {
         var options = [90,180,270];
         var randDegrees = Math.floor(Math.random() * Math.floor(3));
         var randDirection = Math.floor(Math.random() * Math.floor(2))
-        return { degrees: options[randDegrees], clockWise: randDirection == 0};
+        return { degrees: options[randDegrees], clockWise: randDirection === 0};
     }
 
     rotate90 = (_inputArray, _clockWise) => {
@@ -126,7 +126,7 @@ class Spatial extends Component {
 
     updateArray = (i, j) => {
         var _newArray = this.state.clickedArray;
-        _newArray[i][j] = _newArray[i][j]==1?0:1;
+        _newArray[i][j] = _newArray[i][j]===1?0:1;
         this.setState({clickedArray: _newArray});
     }
     
@@ -189,7 +189,7 @@ class Spatial extends Component {
         let j = 0;
         for (i = 0; i < this.state.rotatedInputArray.length; i++){
             for (j = 0; j < this.state.rotatedInputArray[i].length; j++){
-                if(this.state.rotatedInputArray[i][j] != this.state.clickedArray[i][j]){
+                if(this.state.rotatedInputArray[i][j] !== this.state.clickedArray[i][j]){
                     this.setState({
                         result: 'incorrect', 
                     })

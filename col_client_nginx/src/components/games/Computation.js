@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { submitResults } from '../../actions';
-import { Segment, Grid, Header, Button } from 'semantic-ui-react';
+import { Segment, Grid, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class Computation extends Component {

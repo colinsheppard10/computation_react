@@ -15,6 +15,7 @@ export function fetchData() {
             return await axios.get('api/data');
         } catch (err) {
             console.log('ERROR From Actions Get Data');
+            return [];
         }
     }
     return {
@@ -29,6 +30,7 @@ export function fetchRandom() {
             return await axios.get('api/random');
         } catch (err) {
             console.log('ERROR From Actions Get Data');
+            return [];
         }
     }
     return {
@@ -47,6 +49,7 @@ export function submitStudySession(studySessionResults) {
             }
         } catch (err) {
             console.log('ERROR From Actions Submit Study Session');
+            return []
         }
     }
 
@@ -62,6 +65,7 @@ export function fetchDataJess() {
             return await axios.get('api/datajess');
         } catch (err) {
             console.log('ERROR From Actions Get Data');
+            return [];
         }
     }
     return {
@@ -80,6 +84,7 @@ export function submitStudySessionJess(studySessionResults) {
             }
         } catch (err) {
             console.log('ERROR From Actions Submit Study Session');
+            return [];
         }
     }
 
@@ -99,6 +104,7 @@ export function submitResults(computationResults, randomResults) {
             }
         } catch (err) {
             console.log('ERROR From Actions Submit Results');
+            return [];
         }
     }
 

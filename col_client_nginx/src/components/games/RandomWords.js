@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchRandom } from '../../actions';
-import { Segment, Grid, Header, Button } from 'semantic-ui-react';
+import { Grid, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import Countdown from "react-countdown";
 
