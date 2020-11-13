@@ -84,9 +84,8 @@ app.get('/api/datajess', async (req, res) => {
 app.get('/api/random', async (req, res) => {
   logger.info(`recieved Data get request ${new Date()}`);
   try {
-    var response =  await axios.get('https://random-word-api.herokuapp.com//word?number=2');
-    console.log(response.data);
-    res.send(response.data);
+    var response =  await axios.get('http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=2&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5');
+    res.send([response.data[0].word, response.data[1].word])
   } catch (err) {
     console.log(err);
     logger.info(err);
