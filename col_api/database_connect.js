@@ -115,7 +115,7 @@ module.exports = databaseConnect;
 //     study_session_results INT(6) DEFAULT 1 
 // );
 
-// INSERT INTO morning_routine_jess
+// INSERT INTO morning_routine
 //     (time, computation_correct, random_correct)
 // VALUES
 //     ('2019-10-05',2, 1)

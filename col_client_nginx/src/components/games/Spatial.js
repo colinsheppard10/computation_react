@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Button, Grid, Image} from 'semantic-ui-react'
 import whiteSquare from './whiteSquare.png';
 import blackSquare from './blackSquare.png';
-import { submitResults } from '../../actions';
 import { connect } from 'react-redux';
 
 class Spatial extends Component {
@@ -158,7 +157,7 @@ class Spatial extends Component {
         while(this.state.rounds < 6){
             return this.getBoard();
         }
-        this.props.submitResults(this.props.results.computationResults, this.state.score);
+        this.props.stopGame();
         return (
             <Grid.Column>
             <Grid.Row>
@@ -213,4 +212,4 @@ function mapStateToProps(state) {
     return { results: state.results }
 }
 
-export default connect(mapStateToProps, { submitResults })(Spatial);
+export default connect(mapStateToProps)(Spatial);

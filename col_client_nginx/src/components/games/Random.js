@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Segment, Grid, Header, Button } from 'semantic-ui-react';
-import { submitResults } from '../actions';
 import { connect } from 'react-redux';
 
 class Random extends Component {
@@ -80,8 +79,6 @@ class Random extends Component {
         this.setState({
             endTime: `${min.toString()}:${sec.toString().length < 2 ? `0${sec.toString()}` : sec.toString()}`
         })
-        this.props.submitResults(this.props.results.computationResults, this.state.numberCorrect);
-
     }
 
     generateValues() {
@@ -96,5 +93,5 @@ function mapStateToProps(state) {
     return { results: state.results }
 }
 
-export default connect(mapStateToProps, { submitResults })(Random);
+export default connect(mapStateToProps)(Random);
 

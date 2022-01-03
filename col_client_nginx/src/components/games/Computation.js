@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { submitResults } from '../../actions';
 import { Segment, Grid, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
@@ -147,7 +146,7 @@ class Computation extends Component {
         this.setState({
             endTime: `${min.toString()}:${sec.toString().length < 2 ? `0${sec.toString()}` : sec.toString()}`
         })
-        this.props.submitResults(this.state.numberCorrect, this.props.results.randomResults);
+        this.props.stopGame();
     }
 }
 
@@ -155,6 +154,6 @@ function mapStateToProps(state) {
     return { results: state.results }
 }
 
-export default connect(mapStateToProps, { submitResults })(Computation);
+export default connect(mapStateToProps)(Computation);
 
 

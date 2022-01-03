@@ -39,7 +39,7 @@ class Timer extends Component {
           <audio ref={yellow => {this.yellow = yellow;}}>
             <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></source>
           </audio>
-          {this.state.timerVisible && <Countdown date={Date.now() + 1800000} renderer={this.renderer} />}
+          {this.state.timerVisible && <Countdown date={Date.now() + (this.props.time ? this.props.time : 1800000)} renderer={this.renderer} />}
           {!this.state.timerVisible && <Button onClick={() => {this.setState({timerVisible: true});}} size="large">
              <div>Start Session</div>
           </Button>}

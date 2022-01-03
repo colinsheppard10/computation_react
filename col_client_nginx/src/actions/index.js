@@ -94,17 +94,18 @@ export function submitStudySessionJess(studySessionResults) {
     }
 }
 
-export function submitResults(computationResults, randomResults) {
+export function submitResults(results) {
+    const {rounds, minutes} = results;
     const data = async () => {
         try {
-            if (computationResults != null && randomResults != null) {
-                return await axios.post('/api/insert', { "computationResults": computationResults, "randomResults": randomResults })
+            if (rounds >= 4) {
+                return await axios.post('/api/insert', { computationResults: rounds, randomResults:minutes })
             } else {
-                return { "computationResults": computationResults, "randomResults": randomResults }
+                return {rounds, minutes}
             }
         } catch (err) {
             console.log('ERROR From Actions Submit Results');
-            return [];
+            return {rounds, minutes};
         }
     }
 
