@@ -52,7 +52,7 @@ class HomeCol extends React.Component {
   getGame(offset, rand) {
     const { roundsPlayed, phoneGames, deskGames } = this.state;
     console.log(`roundsPlayed${roundsPlayed} , phoneGames:${phoneGames}, deskGames:${deskGames}`)
-    if (roundsPlayed < 6) {
+    if (roundsPlayed < 4) {
       let number = -1;
       while (number == -1 || this.state.gamesSeen.includes(number)) {
         number = Math.floor(Math.random() * Math.floor(rand)) + offset;
@@ -89,8 +89,8 @@ class HomeCol extends React.Component {
             {this.options[gameNumber]}
               <Grid centered columns={1}>
                 <Grid.Row>
-                  {!gameInProgress && <Button onClick={() => this.getGame(2, 6)}>Start Phone {phoneGames}/3</Button>}
-                  {!gameInProgress && <Button onClick={() => this.getGame(8, 4)}>Start Desk {deskGames}/3</Button>}
+                  {!gameInProgress && <Button onClick={() => this.getGame(2, 6)}>Start Phone {phoneGames}/2</Button>}
+                  {!gameInProgress && <Button onClick={() => this.getGame(8, 4)}>Start Desk {deskGames}/2</Button>}
                 </Grid.Row>
               </Grid>
             </Grid.Column>
