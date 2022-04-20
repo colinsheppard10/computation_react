@@ -78,7 +78,15 @@ var databaseConnect = {
         await databaseConnect.executeQuery(con, sql);
         return;
     },
-    
+
+    insertUser: async function (con, user) {
+        var sql = `INSERT INTO userx
+                    (time, firstName, lastName, email)
+                        VALUES
+                    ('${this.formDate()}', '${user.firstName}', '${user.lastName}', '${user.email}')`
+        await databaseConnect.executeQuery(con, sql);
+        return;
+    },
     
     insertOrUpdateStudySessionJess: async function (con, studySessionResults) {
         const currentDate = new Date();
@@ -113,6 +121,13 @@ module.exports = databaseConnect;
 //     computation_correct INT(6),
 //     random_correct INT(6),
 //     study_session_results INT(6) DEFAULT 1 
+// );
+
+// CREATE TABLE userx (
+//     time DATE,
+//     firstName varchar(255),
+//     lastName varchar(255),
+//     email varchar(255)
 // );
 
 // INSERT INTO morning_routine

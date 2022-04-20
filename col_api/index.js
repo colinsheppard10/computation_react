@@ -68,10 +68,21 @@ app.post('/api/studysessionjess', async (req, res) => {
   }
 });
 
+app.post('/api/user', async (req, res) => {
+  logger.info(`recieved API post request ${new Date()}`);
+  try {
+    await databaseConnect.insertUser(dbConnection, req.body.user);
+    logger.info(`inserted into DB ${new Date()}`);
+    res.send({});
+  } catch (err) {
+    console.log(err);
+    logger.info(err);
+  }
+});
+
 app.get('/api/datajess', async (req, res) => {
   logger.info(`recieved Data get request ${new Date()}`);
   try {
-    // res.send('ok');
     var data = await databaseConnect.getDataJess(dbConnection);
     logger.info(`retrieved data from DB ${new Date()}`);
     res.send(data);
